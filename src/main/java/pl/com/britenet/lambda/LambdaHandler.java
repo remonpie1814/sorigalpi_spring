@@ -29,6 +29,8 @@ public class LambdaHandler implements RequestStreamHandler {
 
     @Override
     public void handleRequest(InputStream inputStream, OutputStream outputStream, Context context) throws IOException {
+    	System.out.println("handler 실행...");
+    	
         handler.proxyStream(inputStream, outputStream, context);
         outputStream.close();
     }

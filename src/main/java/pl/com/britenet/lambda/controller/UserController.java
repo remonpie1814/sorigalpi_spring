@@ -8,12 +8,13 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import pl.com.britenet.lambda.entity.User;
 import pl.com.britenet.lambda.repository.UserRepository;
 
+import java.util.Map;
 import java.util.Optional;
 
 @EnableWebMvc
 @RestController
 @RequestMapping("/users")
-@CrossOrigin
+@CrossOrigin(origins="*")
 public class UserController {
 
     @Autowired
@@ -34,20 +35,24 @@ public class UserController {
 
     @GetMapping("/{id}")
     public @ResponseBody
-    Optional<User> findById(@PathVariable Integer id) {
+    Optional<User> findById(@PathVariable Long id) {
         return userRepository.findById(id);
     }
 
     @DeleteMapping("/{id}")
-    public @ResponseBody ResponseEntity<String> delete(@PathVariable Integer id) {
+    public @ResponseBody ResponseEntity<String> delete(@PathVariable Long id) {
         userRepository.deleteById(id);
         return new ResponseEntity<String>("deleted", HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
     public @ResponseBody
-    ResponseEntity<String> updateUser(@PathVariable Integer id, @RequestParam String name, @RequestParam String email) {
-        Optional<User> user = userRepository.findById(id);
+    ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody Map<String, String> map) {
+    	System.out.println(map);
+    	String email = map.get("email");
+    	String name = map.get("name");
+    	Optional<User> user = userRepository.findById(id);
+        System.out.println(user);
         if (user.isPresent()) {
             User userToUpdate = user.get();
             userToUpdate.setEmail(email);

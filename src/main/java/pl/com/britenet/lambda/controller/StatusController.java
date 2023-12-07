@@ -10,6 +10,12 @@ public class StatusController {
 
     public static String ALIVE = "ALIVE";
 
+    @GetMapping(path="/")
+    public String getDefault() {
+    	System.out.println("default로 실행");
+    	return ALIVE;
+    }
+    
     @GetMapping(path = "/status")
     public String getStatus() {
         return ALIVE;
