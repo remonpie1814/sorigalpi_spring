@@ -1,7 +1,9 @@
 # AWS Lambda JAVA11 REST API - serverless
 
 ### Spring boot application with Rest API as a proxy to Amazon RDS MySQL databse.
-asdfasdfasdfasdfasdfasdfadsf
+
+asfasdfadsf
+
 #### 1 Usage :
 
 ##### 1.1. Clone project and configure database
@@ -24,7 +26,7 @@ asdfasdfasdfasdfasdfasdfadsf
 
     @Entity
     public class User {
-    
+
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Integer id;
@@ -38,7 +40,7 @@ Rest API methods :
     GET http://localhost:9000/users/{id}
     DELETE http://localhost:9000/users/{id}
     PUT http://localhost:9000/users/{id}?name=newname&email=mail@amazon.com
-    
+
     GET http://localhost:9000/status
 
 #### 2. Deploy target/amazon-lambda-rest-api-0.0.1-SNAPSHOT.jar as AWS Lambda and expose as AWS Api Gateway
