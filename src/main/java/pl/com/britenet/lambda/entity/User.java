@@ -3,7 +3,7 @@ package pl.com.britenet.lambda.entity;
 import javax.persistence.*;
 
 @Entity(name = "USERS")
-public class User { //주석 test
+public class User { //주석 test //이슈 test
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
