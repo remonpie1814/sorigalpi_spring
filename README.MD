@@ -2,7 +2,7 @@
 
 ### Spring boot application with Rest API as a proxy to Amazon RDS MySQL databse.
 
-😀😀😁😁
+😀😀😁😁asdf
 
 #### 1 Usage :
 
